@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Home Page</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <link href="css/business-frontpage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">NEET</a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary py-4 mb-1">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-lg-9">
+          <h1 class="display-100 text-white mt-5 mb-1"></h1>
+        </div>
+      </div>
+    </div>
+  </header>
+<form id="regForm" action="">
+   {% csrf_token %}
+    {% for qn, q in q_no.items %}
+    {% if qn > 0 and qn < 21 %}
+<h1>Biology:</h1>
+    {% elif qn > 20 and qn < 41 %}
+<h1>Chemistry:</h1>
+    {% else %}
+    <h1>Physics</h1>
+    {% endif %}
+
+<!-- One "tab" for each step in the form: --><div class="tab">
+    <h3 class="text-danger">Q.{{qn}}</h3>
+                        <h5 class="mt-1 ml-2">{{q.q}}</h5>
+     <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="1"> <span>{{q.o1}}</span>
+                        </label>
+                    </div>
+                    <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="2"> <span>{{q.o2}}</span>
+                        </label>
+                    </div>
+                    <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="2"> <span>{{q.o3}}</span>
+                        </label>
+                    </div>
+                    <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="4"> <span>{{q.o4}}</span>
+                        </label>
+                    </div>
+
+</div>
+    <div style="overflow:auto;">
+  <div style="float:right;">
+    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  </div>
+</div>{% endfor %}
+
+
+<!-- Circles which indicates the steps of the form: -->
+<div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+</div>
+
+</form>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Tests</title>
+
+  <!-- Bootstrap core CSS -->
+  {% load static %}
+  <link rel="stylesheet" href= "{% static 'css/paper.css' %}">
+  <script src="{% static 'js/paper.js' %}"></script>
+  <!-- Custom styles for this template -->
+
+</head>
+<!------ Include the above in your HEAD tag ---------->
+<body>
+<form id="regForm" action="">
+   {% csrf_token %}
+    {% if q_no > 0 and q_no < 21 %}
+<h1>Biology:</h1>
+    {% elif q_no > 20 and q_no < 41 %}
+<h1>Chemistry:</h1>
+    {% else %}
+<h1>Physics:</h1>
+    {% endif %}
+<div class="tab">
+    <h3 class="text-danger">Q.{{q_no}}</h3>
+                        <h5 class="mt-1 ml-2">{{question}}</h5>
+     <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="1"> <span>{{o1}}</span>
+                        </label>
+                    </div>
+                    <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="2"> <span>{{o2}}</span>
+                        </label>
+                    </div>
+                    <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="2"> <span>{{o3}}</span>
+                        </label>
+                    </div>
+                    <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="4"> <span>{{o4}}</span>
+                        </label>
+                    </div>
+
+</div>
+  <div class="tab">
+    <h3 class="text-danger">Q.{{q_no}}</h3>
+                        <h5 class="mt-1 ml-2">{{question}}</h5>
+     <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="1"> <span>{{o1}}</span>
+                        </label>
+                    </div>
+                    <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="2"> <span>{{o2}}</span>
+                        </label>
+                    </div>
+                    <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="2"> <span>{{o3}}</span>
+                        </label>
+                    </div>
+                    <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="4"> <span>{{o4}}</span>
+                        </label>
+                    </div>
+
+</div>
+<div class="tab">
+    <h3 class="text-danger">Q.{{q_no}}</h3>
+                        <h5 class="mt-1 ml-2">{{question}}</h5>
+     <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="1"> <span>{{o1}}</span>
+                        </label>
+                    </div>
+                    <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="2"> <span>{{o2}}</span>
+                        </label>
+                    </div>
+                    <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="2"> <span>{{o3}}</span>
+                        </label>
+                    </div>
+                    <div class="ans ml-2">
+                        <label class="radio"> <input type="radio" name="1" value="4"> <span>{{o4}}</span>
+                        </label>
+                    </div>
+
+</div>
+<div style="overflow:auto;">
+  <div style="float:right;">
+    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  </div>
+</div>
+
+<!-- Circles which indicates the steps of the form: -->
+<div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+</div>
+
+</form></body></html>
